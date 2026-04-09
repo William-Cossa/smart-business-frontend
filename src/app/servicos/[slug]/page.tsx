@@ -116,17 +116,17 @@ export default function ServiceDetail() {
       <Link href="/servicos" className="inline-flex items-center text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mb-8">
         <ArrowLeft size={14} className="mr-1.5" /> Voltar aos Serviços
       </Link>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-7 space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+        <div className="md:col-span-7 space-y-5 sticky top-28">
           <motion.h1 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-2xl md:text-3xl font-bold tracking-tight">{data.title}</motion.h1>
-          <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="text-sm text-muted-foreground leading-relaxed max-w-[50ch]">{data.short}</motion.p>
+          <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="text-base text-muted-foreground leading-relaxed max-w-[50ch]">{data.short}</motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="pt-4">
-            <Link href="/contactos" className="inline-flex h-9 items-center rounded-md bg-accent px-5 text-xs font-bold text-white hover:opacity-90 transition-opacity">
+            <Link href="/contactos" className="inline-flex h-10 items-center rounded-md bg-accent px-6 text-sm font-bold text-white hover:opacity-90 transition-opacity">
               Quero este serviço
             </Link>
           </motion.div>
         </div>
-        <motion.div initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="md:col-span-5 space-y-3">
+        <motion.div initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="md:col-span-5 space-y-4">
           <div className="border border-border rounded-lg p-5 space-y-3">
             <h3 className="text-xs font-bold border-b border-border pb-2">O que fazemos</h3>
             <ul className="space-y-1.5">

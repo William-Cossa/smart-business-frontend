@@ -45,20 +45,20 @@ const fadeIn = {
 
 /* ─── data ─── */
 const services = [
-  { id: "consultoria", title: "Consultoria Estratégica", text: "Planeamento e reestruturação.", icon: Briefcase, span: "md:col-span-2" },
-  { id: "planos-de-negocio", title: "Planos para Financiamento", text: "Dossiers para bancos.", icon: FileText, span: "" },
+  { id: "consultoria", title: "Consultoria Estratégica", text: "Planeamento e reestruturação corporativa.", icon: Briefcase, span: "md:col-span-2 md:row-span-2" },
+  { id: "planos-de-negocio", title: "Planos para Financiamento", text: "Dossiers para bancos e parceiros.", icon: FileText, span: "" },
   { id: "projecoes", title: "Projecções Financeiras", text: "Modelos de escalabilidade.", icon: ChartLine, span: "" },
   { id: "acesso-financiamento", title: "Acesso ao Financiamento", text: "Articulação com bancos.", icon: Bank, span: "md:col-span-2" },
   { id: "investidores", title: "Captação de Capital", text: "Investidores e fundos.", icon: UsersThree, span: "" },
-  { id: "formalizacao", title: "Formalização", text: "Alvarás e licenças.", icon: Scales, span: "" },
+  { id: "formalizacao", title: "Formalização", text: "Alvarás e licenças.", icon: Scales, span: "md:row-span-2" },
   { id: "contabilidade", title: "Contabilidade", text: "Gestão fiscal.", icon: Calculator, span: "" },
   { id: "certificacao", title: "Certificação", text: "ISO e compliance.", icon: ShieldCheck, span: "md:col-span-2" },
   { id: "exportacao", title: "Exportação", text: "Mercado global.", icon: GlobeHemisphereWest, span: "" },
   { id: "marketing", title: "Marketing", text: "Branding corporativo.", icon: Megaphone, span: "" },
-  { id: "websites", title: "Soluções Digitais", text: "Web e automação.", icon: Desktop, span: "md:col-span-2" },
-  { id: "design", title: "Design Gráfico", text: "Identidade visual.", icon: PaintBrush, span: "" },
-  { id: "eventos", title: "Eventos B2B", text: "Feiras e activações.", icon: CalendarCheck, span: "" },
-  { id: "governo", title: "Articulação Gov.", text: "Acesso institucional.", icon: Buildings, span: "" },
+  { id: "websites", title: "Soluções Digitais", text: "Web e automação tech.", icon: Desktop, span: "md:col-span-2 md:row-span-2" },
+  { id: "design", title: "Design Gráfico", text: "Identidade visual premium.", icon: PaintBrush, span: "" },
+  { id: "eventos", title: "Eventos B2B", text: "Feiras e activações corporativas.", icon: CalendarCheck, span: "md:col-span-2" },
+  { id: "governo", title: "Articulação Gov.", text: "Acesso institucional e licenças.", icon: Buildings, span: "" },
 ];
 
 const stats = [
@@ -158,9 +158,9 @@ export default function Home() {
               <Link href="/contactos" className="inline-flex h-9 items-center rounded-md bg-accent px-5 text-xs font-bold text-white hover:opacity-90 transition-opacity">
                 Solicitar Proposta
               </Link>
-              <a href="#servicos" className="inline-flex h-9 items-center rounded-md border border-border px-5 text-xs font-medium hover:bg-muted transition-colors">
+              <Link href="#servicos" className="inline-flex h-9 items-center rounded-md border border-border px-5 text-xs font-medium hover:bg-muted transition-colors">
                 Ver Soluções
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -171,10 +171,10 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ type: "spring" as const, stiffness: 80, damping: 20, delay: 0.2 }}
           >
-            <div className="aspect-[4/5] md:aspect-square w-full rounded-xl overflow-hidden relative">
+            <div className="aspect-4/5 md:aspect-square w-full rounded-xl overflow-hidden relative">
               {/* background image */}
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop')] bg-cover bg-center opacity-25" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
 
               {/* stacked glass cards */}
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6">
@@ -246,26 +246,26 @@ export default function Home() {
       <section className="py-16 bg-muted border-t border-border" id="servicos">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <div className="flex items-end justify-between mb-8">
-            <SectionTitle label="Soluções" title="Nossos 14 serviços." />
+            <SectionTitle label="Soluções" title="Nossos serviços." />
             <Link href="/servicos" className="text-[11px] font-bold text-accent hover:underline hidden md:inline-flex items-center">
               Ver detalhes <ArrowRight size={12} className="ml-1" weight="bold" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 grid-flow-row-dense">
             {services.map((svc, i) => {
               const Icon = svc.icon;
-              const isWide = svc.span !== "";
+              const isWide = svc.span.includes("col-span-2");
               return (
                 <motion.div key={svc.id} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }}
-                  className={isWide ? "col-span-2" : ""}
+                  className={svc.span || ""}
                 >
                   <Link href={`/servicos/${svc.id}`}
                     className={`block border border-border rounded-lg p-5 hover:bg-background transition-colors group h-full ${isWide ? "glass" : ""}`}
                   >
-                    <div className="flex items-start gap-3">
-                      <Icon size={20} className="text-accent mt-0.5 shrink-0" />
+                    <div className={`flex ${svc.span.includes("row-span-2") ? "flex-col justify-between h-full" : "items-start gap-3"}`}>
+                      <Icon size={svc.span.includes("row-span-2") ? 32 : 20} className={`text-accent shrink-0 ${svc.span.includes("row-span-2") ? "" : "mt-0.5"}`} />
                       <div>
-                        <h3 className="text-xs font-bold leading-tight mb-0.5">{svc.title}</h3>
+                        <h3 className={`${svc.span.includes("row-span-2") ? "text-base mt-4" : "text-xs"} font-bold leading-tight mb-0.5`}>{svc.title}</h3>
                         <p className="text-[11px] text-muted-foreground leading-snug">{svc.text}</p>
                       </div>
                     </div>
