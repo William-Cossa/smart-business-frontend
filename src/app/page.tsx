@@ -6,10 +6,7 @@ import { useRef } from "react";
 import {
   ArrowUpRight,
   ArrowRight,
-  Handshake,
-  ChartLineUp,
   Briefcase,
-  Certificate,
   GlobeHemisphereWest,
   Megaphone,
   CalendarBlank,
@@ -36,12 +33,14 @@ import {
   CheckCircle,
   RocketLaunch,
 } from "@phosphor-icons/react";
+import { HeroSection } from "@/components/ui/hero-section";
 
 /* ─── animation ─── */
 const fadeIn = {
   hidden: { opacity: 0, y: 12 },
   show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 120, damping: 24 } },
 };
+// Note: fadeIn kept for other sections
 
 /* ─── data ─── */
 const services = [
@@ -132,74 +131,7 @@ export default function Home() {
     <div className="w-full">
 
       {/* ━━━ HERO ━━━ */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
-        {/* subtle bg glow */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-accent/8 rounded-full blur-[100px]" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-accent/5 rounded-full blur-[80px]" />
-        </div>
-
-        <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[65vh] relative z-10">
-          <motion.div className="md:col-span-7 space-y-5" initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.08 } }, hidden: {} }}>
-            <motion.div variants={fadeIn} className="inline-flex items-center rounded-md border border-border bg-muted px-3 py-1 text-[11px] font-medium text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent mr-2 animate-pulse" />
-              Transformando Negócios em Moçambique
-            </motion.div>
-
-            <motion.h1 variants={fadeIn} className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.15]">
-              Plataforma de <span className="text-accent">Crescimento</span> Empresarial.
-            </motion.h1>
-
-            <motion.p variants={fadeIn} className="text-sm text-muted-foreground max-w-[50ch] leading-relaxed">
-              Ajudamos a estruturar micro, pequenas e médias empresas. Conectamos o seu negócio a financiamento, formalização, parceiros e oportunidades reais.
-            </motion.p>
-
-            <motion.div variants={fadeIn} className="flex flex-wrap gap-3 pt-1">
-              <Link href="/contactos" className="inline-flex h-9 items-center rounded-md bg-accent px-5 text-xs font-bold text-white hover:opacity-90 transition-opacity">
-                Solicitar Proposta
-              </Link>
-              <Link href="#servicos" className="inline-flex h-9 items-center rounded-md border border-border px-5 text-xs font-medium hover:bg-muted transition-colors">
-                Ver Soluções
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* ─── Hero visual: stacked glass cards over bg image ─── */}
-          <motion.div
-            className="md:col-span-5 relative"
-            initial={{ opacity: 0, scale: 0.95, rotate: -1 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ type: "spring" as const, stiffness: 80, damping: 20, delay: 0.2 }}
-          >
-            <div className="aspect-4/5 md:aspect-square w-full rounded-xl overflow-hidden relative">
-              {/* background image */}
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop')] bg-cover bg-center opacity-25" />
-              <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
-
-              {/* stacked glass cards */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6">
-                <div className="glass-card rounded-lg p-5 w-full max-w-[280px] transform hover:-translate-y-1 transition-transform duration-300">
-                  <Handshake size={22} className="text-accent mb-3" />
-                  <h3 className="font-semibold text-sm mb-1">Acesso a Capital</h3>
-                  <p className="text-[11px] text-muted-foreground">Financiamento para estruturar e expandir.</p>
-                </div>
-
-                <div className="glass-card rounded-lg p-5 w-full max-w-[280px] transform translate-x-6 hover:-translate-y-1 transition-transform duration-300">
-                  <ChartLineUp size={22} className="text-accent mb-3" />
-                  <h3 className="font-semibold text-sm mb-1">Consultoria</h3>
-                  <p className="text-[11px] text-muted-foreground">Estratégias claras de gestão e mercado.</p>
-                </div>
-
-                <div className="glass-card rounded-lg p-5 w-full max-w-[280px] transform -translate-x-4 hover:-translate-y-1 transition-transform duration-300">
-                  <Certificate size={22} className="text-accent mb-3" />
-                  <h3 className="font-semibold text-sm mb-1">Formalização</h3>
-                  <p className="text-[11px] text-muted-foreground">Alvarás, registos e regularização legal.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ━━━ STATS ━━━ */}
       <section className="border-y border-border bg-muted">
