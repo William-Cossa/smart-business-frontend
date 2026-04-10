@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Bank, 
-  FileText, 
-  Megaphone, 
-  CalendarCheck, 
-  Desktop, 
-  GlobeHemisphereWest, 
-  ChartLine, 
-  Briefcase 
+import {
+  Bank,
+  FileText,
+  Megaphone,
+  CalendarCheck,
+  Desktop,
+  GlobeHemisphereWest,
+  ChartLine,
+  Briefcase
 } from "@phosphor-icons/react";
 
 const solutions = [
@@ -28,12 +28,12 @@ const carouselItems = [...solutions, ...solutions, ...solutions];
 
 export function ScrollingSolutions() {
   return (
-    <section className="py-10 bg-white dark:bg-black/20 overflow-hidden border-b border-black/5 dark:border-white/5">
+    <section className="py-30 bg-white dark:bg-black/20 overflow-hidden border-b border-black/5 dark:border-white/5">
       {/* Label above */}
       <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
-        <p className="text-[13px] md:text-sm text-neutral-400 dark:text-neutral-500 font-medium tracking-wide">
+        <h3 className="text-xl! md:text-xl text-slate-700 dark:text-neutral-500 font-bold tracking-wide">
           Soluções completas para o crescimento da sua empresa
-        </p>
+        </h3>
       </div>
 
       {/* Infinite Scroll Container */}
@@ -52,14 +52,14 @@ export function ScrollingSolutions() {
           {carouselItems.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="flex items-center gap-3.5 group transition-opacity duration-300"
               >
-                <Icon 
-                  size={20} 
+                <Icon
+                  size={20}
                   weight="regular"
-                  className="text-neutral-400 dark:text-neutral-500 group-hover:text-accent transition-colors duration-300" 
+                  className="text-neutral-400 dark:text-neutral-500 group-hover:text-accent transition-colors duration-300"
                 />
                 <span className="text-sm md:text-[15px] font-medium text-neutral-500 dark:text-neutral-400 tracking-tight group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">
                   {item.text}
