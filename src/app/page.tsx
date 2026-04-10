@@ -34,6 +34,7 @@ import {
   RocketLaunch,
 } from "@phosphor-icons/react";
 import { HeroSection } from "@/components/ui/hero-section";
+import { ScrollingSolutions } from "@/components/ui/scrolling-solutions";
 
 /* ─── animation ─── */
 const fadeIn = {
@@ -132,6 +133,9 @@ export default function Home() {
 
       {/* ━━━ HERO ━━━ */}
       <HeroSection />
+
+      {/* ━━━ SOLUTIONS CAROUSEL ━━━ */}
+      <ScrollingSolutions />
 
       {/* ━━━ STATS ━━━ */}
       <section className="border-y border-border bg-muted">
