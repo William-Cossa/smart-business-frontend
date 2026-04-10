@@ -35,6 +35,7 @@ import {
 } from "@phosphor-icons/react";
 import { HeroSection } from "@/components/ui/hero-section";
 import { ScrollingSolutions } from "@/components/ui/scrolling-solutions";
+import { TransformationSection } from "@/components/ui/transformation-section";
 
 /* ─── animation ─── */
 const fadeIn = {
@@ -177,6 +178,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ━━━ TRANSFORMATION ━━━ */}
+      <TransformationSection />
 
       {/* ━━━ SERVIÇOS – Bento Grid ━━━ */}
       <section className="py-16 bg-muted border-t border-border" id="servicos">
